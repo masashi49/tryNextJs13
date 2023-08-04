@@ -47,5 +47,25 @@ authorization: process.env.API_KEY, //サーバー上のみ
 
 SSR でできるならそっちで行う！
 
-次回はここ
-https://nextjs.org/docs/getting-started/react-essentials#third-party-packages
+## サーバーコンポーネント内でクライアントコンポーネントを使う
+
+client component の中に Server component は入れる
+しかしその逆はダメ。
+理由は SSR 時に clientcomponent に含まれる対話部分はレンダリングできないため。
+
+"use client"を使用してコンポーネント化して入れる事ができれば、SSR に含めず CSR に渡せる。
+
+```jsx
+//クライアントコンポーネントでラップする。
+//Carousel.tsx
+"use client"
+import {Carousel} from "hoge"
+export default Carousel
+
+//page.tsx
+import Carousel from "./carousel"
+export default function Page(){
+  return <Carousel />
+}
+
+```
