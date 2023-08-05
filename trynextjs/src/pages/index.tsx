@@ -1,8 +1,7 @@
-import Image from 'next/image';
-import { Inter } from 'next/font/google';
-
-const inter = Inter({ subsets: ['latin'] });
+import { Layout } from '@/components/layout';
 
 export default function Page() {
-  return <h1>Hello next.js</h1>;
+  return <div>Hello next.js</div>;
 }
+
+Page.getLayout = (page: React.ReactNode) => <Layout page={page} key={'hoge'} />;
