@@ -71,5 +71,10 @@ export default function Page(){
 ```
 
 ## サーバーコンポーネントでのサードパーティコンテキストプロバイダーのレンダリング
-サーバーコンポーネント内で使用したいときは、1度use Clientが必要.
-componentnをラッピングして使用すればOK
+
+サーバーコンポーネント内で使用したいときは、1 度 use Client が必要.
+componentn をラッピングして使用すれば OK
+
+## layout は page ではないので、getStaticProps や、getServerSideProps が使えない。
+
+そのため、useEffec や useSWR を使用する。
